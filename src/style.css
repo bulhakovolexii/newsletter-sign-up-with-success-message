@@ -1,7 +1,14 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/forms";
 
 @theme {
   --font-sans: "Roboto", sans-serif;
+
+  --color-red-400: hsl(4, 100%, 67%);
+
+  --color-blue-800: hsl(234, 29%, 20%);
+  --color-blue-700: hsl(235, 18%, 26%);
+  --color-gray-400: hsl(0, 0%, 58%);
 }
 
 @layer base {
@@ -18,10 +25,20 @@
     font-weight: 700;
     font-style: normal;
   }
+
+  body {
+    @apply text-blue-800;
+  }
 }
 
 @layer components {
   .list-icon {
-    @apply before:content-[url(/images/icon-list.svg)] before:absolute before:-left-9 before:top-0.5;
+    @apply before:absolute before:top-0.5 before:-left-[2.3rem] before:content-[url(/images/icon-list.svg)];
+  }
+}
+
+@layer utilities {
+  .invalid {
+    @apply border-red-400 bg-red-400/20 placeholder:text-red-400;
   }
 }
